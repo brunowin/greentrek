@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#FFFFFF'
   },
   iconSelected:{
     color: '#4F8EF7',
