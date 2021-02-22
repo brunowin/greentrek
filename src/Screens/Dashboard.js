@@ -28,6 +28,8 @@ const testData ={
     }
   ]
 }
+
+
 const Banner = ({title}) => (
   <Text style={styles.bannerStyle}>{title}</Text>
 )
@@ -47,16 +49,12 @@ const StatList = ({stats}) => (
   </ScrollView>
   
 )
+
 const Dashboard = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Banner title = {testData.title} />
       <StatList stats={testData.stats} />
-      <SafeAreaView style={styles.iconContainer}>
-        <Icon name="home" style={styles.iconSelected} size={40} />
-        <Icon name="emoji-events" style={styles.iconStyle} size={40} />
-        <Icon name="group" style={styles.iconStyle} size={40} />
-      </SafeAreaView>
     </SafeAreaView>
     
   );
@@ -68,24 +66,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF'
-  },
-  iconSelected:{
-    color: '#4F8EF7',
-    marginRight: 20,
-    marginLeft: 20,
-  },
-  iconStyle:{
-    color: "#141414",
-    marginRight: 20,
-    marginLeft: 20,
-  },
-  iconContainer:{
-    flex: 1,
-    display: 'inline-block',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 70,
-    position: 'relative'
   },
   bannerStyle: {
     color: '#000000',
