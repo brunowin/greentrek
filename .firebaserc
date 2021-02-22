@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "team-d-app",
+    "app": "team-d-app"
+  }
+}
