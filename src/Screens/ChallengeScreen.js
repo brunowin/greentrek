@@ -159,4 +159,8 @@ const styles = StyleSheet.create({
     padding: 20,
     fontSize: 15,
   },
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> izzy
