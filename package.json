@@ -5,10 +5,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "go-public": "expo build:web && firebase deploy"
   },
   "dependencies": {
-    "expo": "~40.0.0",
+    "expo": "^40.0.1",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
