@@ -1,162 +1,155 @@
-// import React, { useState } from "react";
-// import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-// import ProfileList from "../Components/ProfileList";
-
-// const Banner = ({ title }) => <Text style={styles.bannerStyle}>{title}</Text>;
-
-// const ChallengeScreen = () => {
-//   const [choose, setChoose] = useState({ title: "Challenge", profiles: [] });
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <Banner title={choose.title} />
-//       <ProfileList profiles={choose.profiles} />
-//     </SafeAreaView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   bannerStyle: {
-//     color: "#888",
-//     fontSize: 32,
-//   },
-// });
-// export default ChallengeScreen;
-
-import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
+import { StyleSheet, SafeAreaView, ScrollView, View, Text } from "react-native";
+import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
+// import { Card } from "react-native-elements";
+import FriendScreen from "./FriendScreen";
+import MapScreen from "./MapScreen";
 import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
+  FlatList,
   TextInput,
   TouchableOpacity,
-  View,
-} from "react-native";
+} from "react-native-gesture-handler";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const scoreData = {
-  title: "Challenge",
-  profiles: [
+const challenge_data = {
+  title: "Set of Challenges",
+  events: [
     {
-      name: "Thomas Shelby",
-      handle: "@JoshWComeau",
-      content: "One of my favourite recipes!",
-      points: 56,
-      green_score: 334,
+      id: "1",
+      title: "Daily Trek Challenge",
     },
     {
-      name: "Arthur",
-      handle: "@JoshWComeau",
-      content: "Vegan food is best",
-      points: 77,
-      green_score: 777,
+      id: "2",
+      title: "10,000 Steps Challenge",
     },
     {
-      name: "John",
-      handle: "@JoshWComeau",
-      content: "I got this",
-      points: 55,
-      green_score: 123,
+      id: "3",
+      title: "BEYOND your limits Challenge",
     },
     {
-      name: "Grace",
-      handle: "@gracesecret",
-      content: "One of my favourite recipes!",
-      points: 24,
-      green_score: 234,
+      id: "4",
+      title: "The Impossible Challenge",
     },
     {
-      name: "Lizzie",
-      handle: "@JoshWComeau",
-      content: "One of my favourite recipes!",
-      points: 67,
-      green_score: 658,
+      id: "5",
+      title: "Nike Run Club Challenge",
+    },
+    {
+      id: "6",
+      title: "The Wildcat Challenge",
+    },
+    {
+      id: "7",
+      title: "BEYOND your limits Challenge",
+    },
+    {
+      id: "8",
+      title: "The Impossible Challenge",
+    },
+    {
+      id: "9",
+      title: "Daily Trek Challenge",
+    },
+    {
+      id: "10",
+      title: "10,000 Steps Challenge",
+    },
+    {
+      id: "11",
+      title: "BEYOND your limits Challenge",
+    },
+    {
+      id: "12",
+      title: "The Impossible Challenge",
     },
   ],
 };
 
-const Banner = ({ title }) => <Text style={styles.bannerStyle}>{title}</Text>;
-const Profile = ({ profile }) => (
-  <TouchableOpacity style={styles.profileButton}>
-    <Text style={styles.profileText}>
-      {`${profile.name}               ${profile.points}`}
-    </Text>
+const Challenge = ({ event, view }) => (
+  <TouchableOpacity style={styles.challengeButton} onPress={() => view(event)}>
+    <Text style={styles.challengeText}>{` ${event.title} `}</Text>
   </TouchableOpacity>
 );
 
-const ProfileList = ({ profiles }) => (
+const ChallengeList = ({ events }) => (
   <ScrollView>
-    <View style={styles.profileList}>
-      {profiles.map((profile) => (
-        <Profile key={profile.title} profile={profile} />
+    <View style={styles.challengeList}>
+      {events.map((event) => (
+        <Challenge key={event.id} event={event} />
       ))}
     </View>
   </ScrollView>
 );
 
-export default function ChallengeScreen() {
-  const [value, onChangeText] = React.useState("Enter Challenge Name:");
+// const TextBox = () => {};
+
+const ChallengeScreen = ({ navigation }) => {
+  const view = (event) => {
+    navigation.navigate("FriendScreen", { event });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Banner title={scoreData.title} />
-      <TextInput
-        style={styles.inputBox}
-        onChangeText={(text) => onChangeText(text)}
-        value={value}
-      />{" "}
-      <ProfileList profiles={scoreData.profiles} />
+      <Text style={styles.textHeader}>Your Challenges</Text>
+      <View style={styles.inputBox}>
+        <TextInput style={styles.inputText}>Enter Custom Challenge</TextInput>
+      </View>
+      <ChallengeList events={challenge_data.events} view={view} />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "space-evenly",
+    paddingTop: 10,
+  },
+  textHeader: {
+    fontSize: 36,
     justifyContent: "center",
-  },
-  bannerStyle: {
-    color: "#000000",
-    fontSize: 40,
-    paddingTop: 80,
-  },
-  profileList: {
-    flex: 1,
-    flexDirection: "column",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
-  profileButton: {
-    borderRadius: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20,
-    height: 60,
-    minWidth: 350,
-    maxWidth: 350,
-    backgroundColor: "#fadd79",
-  },
-  profileText: {
-    color: "#000000",
-    fontSize: 15,
-    textAlign: "center",
+    fontWeight: "bold",
   },
   inputBox: {
-    borderRadius: 5,
-    backgroundColor: "#e9f6a6",
-    height: 40,
-    margin: 20,
-    minWidth: 350,
-    maxWidth: 350,
+    margin: 15,
+    width: 320,
+    height: 50,
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
-    fontSize: 15,
+    backgroundColor: "#cdebf9",
+    fontSize: 24,
+  },
+  inputText: {
+    fontSize: 20,
+    fontWeight: "500",
+    color: "#808080",
+    opacity: 0.8,
+  },
+  challengeList: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  challengeButton: {
+    flex: 1,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10,
+    height: 20,
+    // padding: 10,
+    width: 150,
+    backgroundColor: "#B4EEB4",
+  },
+  challengeText: {
+    color: "#333",
+    fontSize: 20,
+    fontWeight: "600",
+    textAlign: "center",
   },
 });
+
+export default ChallengeScreen;
