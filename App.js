@@ -17,7 +17,7 @@ const App = () => {
 
     <NavigationContainer>
       <Tab.Navigator>
-      <Tab.Screen name= "Dashboard"
+      <Tab.Screen name= "Home"
         component={Dashboard}
         />
       <Tab.Screen name= "Leaderboard"

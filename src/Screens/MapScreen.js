@@ -2,6 +2,8 @@ import React from 'react'
 import MapView, { Marker, Polyline } from 'react-native-maps'
 import {StyleSheet, Text, View, Dimensions} from 'react-native'
 import { useState } from 'react';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 export default function MapScreen() {
     const NU = {
@@ -18,6 +20,10 @@ export default function MapScreen() {
         latitudeDelta: 0.01,
         longitudeDelta: 0.01
     });
+    const _map = useRef(null);
+    useEffect(() => {
+
+    }, [])
     return (
         <View style={styles.container}>
             <MapView 
