@@ -86,7 +86,7 @@ const lineChartConfig = {
 const screenWidth = Dimensions.get("window").width;
 const Stack = createStackNavigator();
 
-const Dashboard = ({navigation}) => {
+const Dashboard = () => {
   return (
     // <SafeAreaView style={styles.container}>
     //   <Banner title = {testData.title} />
