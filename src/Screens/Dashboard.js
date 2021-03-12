@@ -86,7 +86,7 @@ const lineChartConfig = {
 const screenWidth = Dimensions.get("window").width;
 const Stack = createStackNavigator();
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
   return (
     // <SafeAreaView style={styles.container}>
     //   <Banner title = {testData.title} />
@@ -166,7 +166,8 @@ const Dashboard = () => {
     </Svg>
     <SafeAreaView style={styles.buttonsView}>
     <TouchableOpacity 
-      style={styles.carbonButton}>
+      style={styles.carbonButton}
+      onPress={() => navigation.navigate("Map")}>
       <Text style={styles.carbonText}>Carbon Offset</Text>
 
   </TouchableOpacity>
