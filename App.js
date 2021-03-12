@@ -2,6 +2,7 @@ import React, { useState, useEffect }  from 'react';
 import Dashboard from './src/Screens/Dashboard';
 import Leaderboard from './src/Screens/Leaderboard';
 import ChallengeScreen from './src/Screens/ChallengeScreen';
+import MapScreen from './src/Screens/MapScreen';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -16,7 +17,7 @@ const App = () => {
 
     <NavigationContainer>
       <Tab.Navigator>
-      <Tab.Screen name= "Dashboard"
+      <Tab.Screen name= "Home"
         component={Dashboard}
         />
       <Tab.Screen name= "Leaderboard"
@@ -24,6 +25,9 @@ const App = () => {
         />
       <Tab.Screen name= "Challenge"
         component={ChallengeScreen}
+        />
+      <Tab.Screen name= "Map"
+        component={MapScreen}
         />
       </Tab.Navigator>
       </NavigationContainer>

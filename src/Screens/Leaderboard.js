@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7CDD6D',
   },
   statText: {
-    color: '#00000',
+    color: '#000000',
     fontSize: 15,
     marginLeft: 20,
   },
