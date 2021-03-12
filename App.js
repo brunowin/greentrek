@@ -17,19 +17,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-<<<<<<< HEAD
-      <Tab.Screen name= "Home"
-        component={Dashboard}
-        />
-      <Tab.Screen name= "Leaderboard"
-        component={Leaderboard}
-        />
-      <Tab.Screen name= "Challenge"
-        component={ChallengeScreen}
-        />
-      <Tab.Screen name= "Map"
-        component={MapScreen}
-=======
         <Tab.Screen name="Dashboard" component={Dashboard} />
         <Tab.Screen name="Leaderboard" component={Leaderboard} />
         {/* <Tab.Screen name="Challenge" component={CardScreen} /> */}
@@ -41,7 +28,6 @@ const App = () => {
           //   tabBarButton: () => null,
           //   tabBarVisible: false,
           // }}
->>>>>>> shourya7
         />
         <Tab.Screen name="Map" component={MapScreen} />
       </Tab.Navigator>

@@ -1,45 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import MapView, { Marker, Polyline } from 'react-native-maps'
-import {StyleSheet, Text, View, Dimensions} from 'react-native'
-import { useState } from 'react';
-import { useRef } from 'react';
-import { useEffect } from 'react';
-
-export default function MapScreen() {
-    const NU = {
-        latitude: 42.055984,
-        longitude: -87.675171
-    }
-    const blockMuseum = {
-        latitude: 42.0524,
-        longitude: -87.6727
-    }
-    const [region, setRegion] = useState({
-        latitude: 42.055984,
-        longitude: -87.675171,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01
-    });
-    const _map = useRef(null);
-    useEffect(() => {
-
-    }, [])
-    return (
-        <View style={styles.container}>
-            <MapView 
-            style={styles.map} 
-            region={region}
-            onRegionChangeComplete={region => setRegion(region)}>
-            <Marker coordinate={{latitude: 42.055984, longitude: -87.675171}} />
-            <Marker coordinate={{latitude: 42.0524, longitude: -87.6727}} />
-            <Polyline coordinates={[NU, blockMuseum]} />
-            </MapView>
-            
-        </View>
-    );
-};
-=======
 import * as React from "react";
 import MapView from "react-native-maps";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
@@ -53,7 +11,6 @@ export default function MapScreen() {
     latitudeDelta: 0.014,
     longitudeDelta: 0.014,
   });
->>>>>>> shourya7
 
   const homeCoords = {
     latitude: 42.049528,
