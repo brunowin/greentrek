@@ -1,51 +1,47 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+// import React from "react";
+// import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const getFriendName = profile => {
-    profile.name.slice(1);
-}
+// const Friend = ({ event, isSelected, select }) => (
+//   <TouchableOpacity
+//     style={styles[isSelected ? "friendButtonSelected" : "friendButton"]}
+//     onPress={() => {
+//       select(event);
+//     }}
+//     // onPress={() => this.props.navigation.navigate(Leaderboard)}
+//   >
+//     <Text style={styles.challengeText}>{` ${event.name} `}</Text>
+//   </TouchableOpacity>
+// );
 
-const Friend = ({ profile, isDisabled, isSelected, select, view }) => (
-    <TouchableOpacity style={styles[isSelected ? 'friendButtonSelected' : isDisabled ? 'friendButtonDisabled' : 'friendButton']}
-      onPress={() => { if (!isDisabled) select(profile); }} 
-      onLongPress={ () => view(profile)}
-      >
-    <Text style={styles.courseText}>
-      {`CS ${getFriendName(profile)}\n${profile.handles}`}
-    </Text>
-  </TouchableOpacity>
-  );
-
-const friendButtonBase = {
-  flex: 1,
-  borderRadius: 5,
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: 10,
-  height: 60,
-  padding: 10,
-  minWidth: 90,
-  maxWidth: 90,
-}
-
-const styles = StyleSheet.create({
-  friendButton: {
-    ...friendButtonBase,
-    backgroundColor: '#66b0ff',
-  },
-  friendText: {
-    color: '#fff',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  friendButtonSelected: {
-    ...friendButtonBase,
-    backgroundColor: '#004a99'
-  },
-  friendButtonDisabled: {
-    ...friendButtonBase,
-    backgroundColor: '#d3d3d3',
-  },
-});
-
-export default Friend;
+// const styles = StyleSheet.create({
+//   challengeList: {
+//     flex: 1,
+//     flexDirection: "row",
+//     flexWrap: "wrap",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   friendButton: {
+//     flex: 1,
+//     borderRadius: 8,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     margin: 10,
+//     height: 20,
+//     // padding: 10,
+//     width: 150,
+//     backgroundColor: "#d8d8d8",
+//   },
+//   friendButtonSelected: {
+//     flex: 1,
+//     borderRadius: 8,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     margin: 10,
+//     height: 20,
+//     // padding: 10,
+//     width: 150,
+//     backgroundColor: "#00FFFF",
+//   },
+// });
+// export default Friend;
