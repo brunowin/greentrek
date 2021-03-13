@@ -1,47 +1,43 @@
-// import React from "react";
-// import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-// const Friend = ({ event, isSelected, select }) => (
-//   <TouchableOpacity
-//     style={styles[isSelected ? "friendButtonSelected" : "friendButton"]}
-//     onPress={() => {
-//       select(event);
-//     }}
-//     // onPress={() => this.props.navigation.navigate(Leaderboard)}
-//   >
-//     <Text style={styles.challengeText}>{` ${event.name} `}</Text>
-//   </TouchableOpacity>
-// );
+const Friend = ({ event, isDisabled, isSelected, select, view }) => (
+  <TouchableOpacity
+    style={styles[isSelected ? "friendButtonSelected" : "friendButton"]}
+    onPress={() => {
+      select(event);
+    }}
+  >
+    <Text style={styles.friendText}>{` ${event.name} `}</Text>
+  </TouchableOpacity>
+);
 
-// const styles = StyleSheet.create({
-//   challengeList: {
-//     flex: 1,
-//     flexDirection: "row",
-//     flexWrap: "wrap",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   friendButton: {
-//     flex: 1,
-//     borderRadius: 8,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     margin: 10,
-//     height: 20,
-//     // padding: 10,
-//     width: 150,
-//     backgroundColor: "#d8d8d8",
-//   },
-//   friendButtonSelected: {
-//     flex: 1,
-//     borderRadius: 8,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     margin: 10,
-//     height: 20,
-//     // padding: 10,
-//     width: 150,
-//     backgroundColor: "#00FFFF",
-//   },
-// });
-// export default Friend;
+const friendButtonBase = {
+  flex: 1,
+  borderRadius: 8,
+  justifyContent: "center",
+  alignItems: "center",
+  margin: 10,
+  height: 20,
+  // padding: 10,
+  width: 150,
+};
+
+const styles = StyleSheet.create({
+  friendButton: {
+    ...friendButtonBase,
+    backgroundColor: "#d8d8d8",
+  },
+  friendButtonSelected: {
+    ...friendButtonBase,
+    backgroundColor: "#00FFFF",
+  },
+  friendText: {
+    color: "#333",
+    fontSize: 20,
+    fontWeight: "600",
+    textAlign: "center",
+  },
+});
+
+export default Friend;
