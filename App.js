@@ -33,6 +33,6 @@ const App = () => {
       </Tab.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 export default App;
