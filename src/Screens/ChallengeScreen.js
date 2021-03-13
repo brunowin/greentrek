@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, SafeAreaView, ScrollView, View, Text } from "react-native";
 import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { Card } from "react-native-elements";
+// import { Card } from "react-native-elements";
 import FriendScreen from "./FriendScreen";
 import MapScreen from "./MapScreen";
 import {
