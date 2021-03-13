@@ -107,14 +107,16 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   textHeader: {
-    fontSize: 36,
+    fontSize: 32,
     justifyContent: "center",
     fontWeight: "bold",
+    marginTop: 10,
   },
   inputBox: {
     margin: 15,
-    width: 320,
+    width: 340,
     height: 50,
+    borderRadius: 6,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#cdebf9",
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
     margin: 10,
     height: 20,
     // padding: 10,
-    width: 150,
+    width: 160,
     backgroundColor: "#B4EEB4",
   },
   challengeText: {

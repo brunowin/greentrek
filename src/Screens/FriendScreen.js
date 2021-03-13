@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     marginTop: 20,
-    fontSize: 20,
+    fontSize: 24,
     justifyContent: "center",
     fontWeight: "bold",
   },
