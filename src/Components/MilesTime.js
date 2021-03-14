@@ -4,13 +4,14 @@ import {Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 const MilesTime = ({transport, transportMiles, transportTime}) =>(
 
 <View style={{flexDirection:"row"}}>
-<View style={{flexDirection:"column"}}>
+<View style={{flexDirection:"column", width:200}}>
   <Text style={styles.headerStyle}>{transport}</Text>
   <Text style={styles.subText}>Miles: {transportMiles}</Text>
   <Text style={styles.subText}>Time: {transportTime}</Text>
+  <Text></Text>
 </View>
 
-<TouchableOpacity >
+<TouchableOpacity style={{marginLeft: 135}}>
   <View style={styles.goButtonStyle}>
     <Text style={styles.textStyle}>GO</Text>
   </View>
@@ -30,7 +31,11 @@ const styles = StyleSheet.create({
     borderRadius:15,
     alignItems:"center",
     justifyContent:"center",
-    marginLeft: 230,
+    position:"absolute",
+    
+    
+    
+    
   },
   headerStyle:{
     marginLeft: 10,
