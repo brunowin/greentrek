@@ -21,7 +21,14 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Dashboard" component={Dashboard} />
-        {/* <Tab.Screen name="Leaderboard" component={Leaderboard} /> */}
+        <Tab.Screen
+          name="Leaderboard"
+          component={Leaderboard}
+          options={{
+            tabBarButton: () => null,
+            tabBarVisible: false,
+          }}
+        />
         {/* <Tab.Screen name="Challenge" component={CardScreen} /> */}
         <Tab.Screen name="Challenge" component={ChallengeScreen} />
         <Tab.Screen

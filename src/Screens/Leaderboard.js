@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import Icons from "react-native-vector-icons/MaterialIcons";
 
 const testData = {
   title: "Leaderboard",
@@ -63,9 +64,21 @@ const StatList = ({ rankings }) => (
   </ScrollView>
 );
 
-const Leaderboard = () => {
+const Leaderboard = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+        styles={styles.backButton}
+        onPress={() => navigation.navigate("Challenge")}
+      >
+        <Icons
+          name={"arrow-back"}
+          size={30}
+          color="#333"
+          style={{ marginLeft: "90%", marginTop: "5%" }}
+        />
+      </TouchableOpacity>
+
       <Banner title={testData.title} />
       <StatList rankings={testData.rankings} />
     </SafeAreaView>
@@ -103,6 +116,10 @@ const styles = StyleSheet.create({
     color: "#000000",
     fontSize: 15,
     marginLeft: 20,
+  },
+  backButton: {
+    // marginLeft: 100,
+    // siz,
   },
 });
 
