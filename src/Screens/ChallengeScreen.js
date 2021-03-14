@@ -11,6 +11,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
+import Icons from "react-native-vector-icons/MaterialIcons";
 
 const challenge_data = {
   title: "Set of Challenges",
@@ -90,6 +91,14 @@ const ChallengeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate("Leaderboard")}>
+        <Icons
+          name={"leaderboard"}
+          size={30}
+          color="#333"
+          style={{ marginLeft: "90%", marginTop: "1%", padding: 0 }}
+        />
+      </TouchableOpacity>
       <Text style={styles.textHeader}>Your Challenges</Text>
       <View style={styles.inputBox}>
         <TextInput style={styles.inputText}>Enter Custom Challenge</TextInput>
@@ -110,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     justifyContent: "center",
     fontWeight: "bold",
-    marginTop: 20,
+    // marginTop: 20,
     paddingBottom: 10,
   },
   inputBox: {
@@ -146,6 +155,7 @@ const styles = StyleSheet.create({
     // padding: 10,
     width: 160,
     backgroundColor: "#B4EEB4",
+    shadowColor: "#333",
   },
   challengeText: {
     color: "#333",
