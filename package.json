@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "go-public": "expo build:web && firebase deploy"
   },
   "dependencies": {
     "@mapbox/polyline": "^1.1.1",
