@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, StyleSheet, Dimensions, Button, Alert, TouchableOpacity } from 'react-native';
+import { AppRegistry, Text, View, StyleSheet, Dimensions} from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Polyline from '@mapbox/polyline';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import DraggablePanel from 'react-native-draggable-panel';
 import {SearchBar} from 'react-native-elements';
-import { render } from 'react-dom';
 import MilesTime from '../Components/MilesTime'
 
 
@@ -94,10 +92,10 @@ export default class MapScreen extends Component {
         style={styles.map}
         provider= {PROVIDER_GOOGLE}
         region={{
-        latitude: 42.054,
+        latitude: 42.051,
         longitude: -87.675171,
-        latitudeDelta: 0.02,
-        longitudeDelta: 0.02
+        latitudeDelta: 0.03,
+        longitudeDelta: 0.028
       }}>
 
         <MapView.Marker 
@@ -125,7 +123,7 @@ export default class MapScreen extends Component {
       <DraggablePanel
         visible={true}
         expandable={true}
-        initialHeight={260}
+        initialHeight={330}
         overlayOpacity={0}
       >
           <SearchBar
@@ -178,27 +176,6 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     alignItems: "center"
   },
-  textStyle: {
-    color: "white",
-    fontSize: 25
-  },
-  goButtonStyle: {
-    backgroundColor:"green",
-    width:70,
-    height:70,
-    borderRadius:15,
-    alignItems:"center",
-    justifyContent:"center",
-    marginLeft: 230,
-  },
-  headerStyle:{
-    marginLeft: 10,
-    fontSize: 25,
-  },
-  subText: {
-    marginLeft:10,
-    fontSize:15
-  }
 });
 
 
