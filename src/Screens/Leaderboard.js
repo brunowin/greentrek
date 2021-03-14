@@ -75,7 +75,7 @@ const Leaderboard = ({ navigation }) => {
           name={"arrow-back"}
           size={30}
           color="#333"
-          style={{ marginLeft: "90%", marginTop: "5%" }}
+          style={{ marginRight: "86%", marginTop: "5%" }}
         />
       </TouchableOpacity>
 

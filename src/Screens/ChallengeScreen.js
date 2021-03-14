@@ -96,7 +96,7 @@ const ChallengeScreen = ({ navigation }) => {
           name={"leaderboard"}
           size={30}
           color="#333"
-          style={{ marginRight: "88%", marginTop: "1%", padding: 0 }}
+          style={{ marginLeft: "90%", marginTop: "1%", padding: 0 }}
         />
       </TouchableOpacity>
       <Text style={styles.textHeader}>Your Challenges</Text>
