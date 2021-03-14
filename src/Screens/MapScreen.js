@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import DraggablePanel from 'react-native-draggable-panel';
 import {SearchBar} from 'react-native-elements';
 import { render } from 'react-dom';
+import MilesTime from '../Components/MilesTime'
 
 
 
@@ -87,7 +88,6 @@ export default class MapScreen extends Component {
   
     
     
-    
     return (
     <View>
       <MapView 
@@ -135,47 +135,11 @@ export default class MapScreen extends Component {
             platform = "ios"
             />
           
-          <View style={{flexDirection:"row"}}>
-            <View style={{flexDirection:"column"}}>
-              <Text style={styles.headerStyle}>Walking</Text>
-              <Text style={styles.subText}>Miles: {this.state.distWalk}</Text>
-              <Text style={styles.subText}>Time: {this.state.timeWalk}</Text>
-            </View>
+          <MilesTime transport='Walking' transportMiles={this.state.distWalk} transportTime={this.state.timeWalk}/>
 
-            <TouchableOpacity onPress={this.displayLine}>
-              <View style={styles.goButtonStyle}>
-                <Text style={styles.textStyle}>GO</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+          <MilesTime transport='Biking' transportMiles={this.state.distBike} transportTime={this.state.timeBike}/>
 
-          <View style={{flexDirection:"row"}}>
-            <View style={{flexDirection:"column"}}>
-              <Text style={styles.headerStyle}>Biking</Text>
-              <Text style={styles.subText}>Miles: {this.state.distBike}</Text>
-              <Text style={styles.subText}>Time: {this.state.timeBike}</Text>
-            </View>
-
-            <TouchableOpacity onPress={() => Alert.alert('Simple Button pressed')}>
-              <View style={styles.goButtonStyle}>
-                <Text style={styles.textStyle}>GO</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={{flexDirection:"row"}}>
-            <View style={{flexDirection:"column"}}>
-              <Text style={styles.headerStyle}>Transit</Text>
-              <Text style={styles.subText}>Miles: {this.state.distTran}</Text>
-              <Text style={styles.subText}>Time: {this.state.timeTran}</Text>
-            </View>
-
-            <TouchableOpacity onPress={() => Alert.alert('Simple Button pressed')}>
-              <View style={styles.goButtonStyle}>
-                <Text style={styles.textStyle}>GO</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+          <MilesTime transport='Transit' transportMiles={this.state.distTran} transportTime={this.state.timeTran}/>
           
         </DraggablePanel>
       </View>
