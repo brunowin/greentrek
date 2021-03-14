@@ -54,7 +54,7 @@ const SelectFriend = ({ navigation }) => {
           onSelectedItemsChange={onSelectedItemsChange}
           selectedItems={selectedItems}
           selectText="Chose Friends..."
-          searchInputPlaceholderText="Search Items..."
+          searchInputPlaceholderText="Search..."
           onChangeInput={(text) => console.log(text)}
           tagRemoveIconColor="#B4EEB4"
           tagBorderColor="#B4EEB4"
