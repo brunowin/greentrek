@@ -102,8 +102,6 @@ const styles = StyleSheet.create ({
         fontSize: 20,
         color: "white",
         fontWeight: 'bold',
-        fontFamily: "San Francisco"
-
     },
     co2Text: {
         fontSize: 30,
