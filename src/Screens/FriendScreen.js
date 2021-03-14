@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Component } from "react";
+import { render } from "react-dom";
 import {
   Button,
   StyleSheet,
@@ -7,14 +9,12 @@ import {
   View,
   Text,
 } from "react-native";
-import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
-// import { Card } from "react-native-elements";
-// import { Leaderboard, testData } from "./Leaderboard";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import FriendSelector from "../Components/FriendSelector";
+import MultiSelect from "react-native-multiple-select";
 
-const testData = {
-  title: "Leaderboard",
+// import FriendList from "../Components/FriendList";
+
+const items = {
   rankings: [
     {
       rank: "1.",
@@ -49,50 +49,90 @@ const testData = {
   ],
 };
 
-// const FriendSelector = ({ events }) => {
-//   const [selected, setselected] = useState([]);
+class MultipleSelect extends Component {}
 
-//   <View style={styles.challengeList}>
-//     {events.map((event) => (
-//       <Friend
-//         key={event.id}
-//         event={event}
-//         isSelected={selected.includes(course)}
-//       />
-//     ))}
-//   </View>;
+// const FriendSelector = ({ events, view }) => {
+//   const [selected, setSelected] = useState([]);
+//   const toggle = (event) =>
+//     setSelected((selected) =>
+//       selected.includes(event)
+//         ? selected.filter((x) => x !== event)
+//         : [...selected, event]
+//     );
+
+//   return (
+//     <View style={styles.challengeList}>
+//       {events.map((event) => (
+//         <Friend
+//           key={event.id}
+//           event={event}
+//           isSelected={selected.includes(event)}
+//           select={toggle}
+//           view={view}
+//         />
+//       ))}
+//     </View>
+//   );
 // };
 
-const Friend = ({
+const Friend = ({ event, isDisabled, isSelected, select, view }) => ({
   event,
   // , isSelected, select
 }) => (
+  // <TouchableOpacity
+  //   style={styles.challengeButton}
+  //   // style={styles[isSelected ? "friendButtonSelected" : "friendButton"]}
+  //   // onPress={() => {
+  //   //   select(event);
+  //   // }}
+  //   // onPress={() => this.props.navigation.navigate(Leaderboard)}
+  // >
+  //   <Text style={styles.challengeText}>{` ${event.name} `}</Text>
+  // </TouchableOpacity>
   <TouchableOpacity
-    style={styles.challengeButton}
-    // style={styles[isSelected ? "friendButtonSelected" : "friendButton"]}
-    // onPress={() => {
-    //   select(event);
-    // }}
-    // onPress={() => this.props.navigation.navigate(Leaderboard)}
+    style={styles[isSelected ? "friendButtonSelected" : "friendButton"]}
+    onPress={() => {
+      select(event);
+    }}
   >
-    <Text style={styles.challengeText}>{` ${event.name} `}</Text>
+    <Text style={styles.friendText}>{` ${event.name} `}</Text>
   </TouchableOpacity>
 );
 
-const FriendList = ({ events }) => (
-  <ScrollView>
-    {/* <FriendSelector events={events} /> */}
-    <View style={styles.challengeList}>
-      {events.map((event) => (
-        <Friend
-          key={event.id}
-          event={event}
-          // isSelected={selected.includes(event)}
+const FriendList = ({ events }) => {
+  state = { selectedItems: [] };
+
+  onSelectedItemsChange = (selectedItems) => {
+    this.setState({ selectedItems });
+  };
+
+  const { selectedItems } = this.state;
+
+  return (
+    <ScrollView>
+      <View style={styles.challengeList}>
+        <MultiSelect
+          hideTags
+          items={items}
+          uniqueKey="id"
+          ref={(component) => {
+            this.multiSelect = component;
+          }}
+          onSelectedItemsChange={this.onSelectedItemsChange}
+          selectedItems={selectedItems}
+          selectText
         />
-      ))}
-    </View>
-  </ScrollView>
-);
+        {events.map((event) => (
+          <Friend
+            key={event.id}
+            event={event}
+            // isSelected={selected.includes(event)}
+          />
+        ))}
+      </View>
+    </ScrollView>
+  );
+};
 
 // const view = (event) => {
 //   navigation.navigate("Leaderboard", { event });
@@ -110,6 +150,17 @@ const FriendScreen = () => {
       </TouchableOpacity>
     </SafeAreaView>
   );
+};
+
+const friendButtonBase = {
+  flex: 1,
+  borderRadius: 8,
+  justifyContent: "center",
+  alignItems: "center",
+  margin: 10,
+  height: 20,
+  // padding: 10,
+  width: 150,
 };
 
 const styles = StyleSheet.create({
@@ -153,6 +204,20 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   challengeText: {
+    color: "#333",
+    fontSize: 20,
+    fontWeight: "600",
+    textAlign: "center",
+  },
+  friendButton: {
+    ...friendButtonBase,
+    backgroundColor: "#d8d8d8",
+  },
+  friendButtonSelected: {
+    ...friendButtonBase,
+    backgroundColor: "#00FFFF",
+  },
+  friendText: {
     color: "#333",
     fontSize: 20,
     fontWeight: "600",

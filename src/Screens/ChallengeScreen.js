@@ -8,6 +8,7 @@ import {
   FlatList,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -65,28 +66,27 @@ const challenge_data = {
   ],
 };
 
-const Challenge = ({ event, view }) => (
-  <TouchableOpacity style={styles.challengeButton} onPress={() => view(event)}>
-    <Text style={styles.challengeText}>{` ${event.title} `}</Text>
-  </TouchableOpacity>
-);
-
-const ChallengeList = ({ events }) => (
-  <ScrollView>
-    <View style={styles.challengeList}>
-      {events.map((event) => (
-        <Challenge key={event.id} event={event} />
-      ))}
-    </View>
-  </ScrollView>
-);
-
 // const TextBox = () => {};
 
 const ChallengeScreen = ({ navigation }) => {
-  const view = (event) => {
-    navigation.navigate("FriendScreen", { event });
-  };
+  const Challenge = ({ event }) => (
+    <TouchableOpacity
+      style={styles.challengeButton}
+      onPress={() => navigation.navigate("SelectFriend")}
+    >
+      <Text style={styles.challengeText}>{` ${event.title} `}</Text>
+    </TouchableOpacity>
+  );
+
+  const ChallengeList = ({ events }) => (
+    <ScrollView>
+      <View style={styles.challengeList}>
+        {events.map((event) => (
+          <Challenge key={event.id} event={event} />
+        ))}
+      </View>
+    </ScrollView>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -94,7 +94,7 @@ const ChallengeScreen = ({ navigation }) => {
       <View style={styles.inputBox}>
         <TextInput style={styles.inputText}>Enter Custom Challenge</TextInput>
       </View>
-      <ChallengeList events={challenge_data.events} view={view} />
+      <ChallengeList events={challenge_data.events} />
     </SafeAreaView>
   );
 };
@@ -110,11 +110,12 @@ const styles = StyleSheet.create({
     fontSize: 32,
     justifyContent: "center",
     fontWeight: "bold",
-    marginTop: 10,
+    marginTop: 20,
+    paddingBottom: 10,
   },
   inputBox: {
-    margin: 15,
-    width: 340,
+    margin: 25,
+    width: 360,
     height: 50,
     borderRadius: 6,
     alignItems: "center",
@@ -151,6 +152,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     textAlign: "center",
+  },
+  touchBox: {
+    opacity: 100,
   },
 });
 
