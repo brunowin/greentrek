@@ -1,37 +1,16 @@
-import React from "react";
-import {
-  Dimensions,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  Text,
-  Button,
-} from "react-native";
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from "react-native-chart-kit";
-import FlashMessage, { showMessage } from "react-native-flash-message";
-import Svg, {
-  Circle,
-  Path,
-  Text as SvgText,
-  TSpan,
-  Rect,
-} from "react-native-svg";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import Leaderboard from "./Leaderboard";
-import MapScreen from "./MapScreen";
+import React from 'react';
+import { Dimensions, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View, Text, Button} from 'react-native';
+import {LineChart, BarChart, PieChart, ProgressChart, ContributionGraph, StackedBarChart} from 'react-native-chart-kit';
+import FlashMessage, {showMessage} from "react-native-flash-message";
+import Svg, {Circle, Path, Text as SvgText, TSpan, Rect} from 'react-native-svg';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Leaderboard from './Leaderboard';
+import MapScreen from './MapScreen';
+import CarbonOffsetScreen from './CarbonOffsetScreen';
 
-const progressChartData = {
-  title: "Total progress",
+const progressChartData ={
+  "title": "Total progress",
   // "stats": [
   //   {
   //     "title": "Offset",
@@ -188,19 +167,22 @@ const Dashboard = ({ navigation }) => {
         stroke="green"
         strokeWidth="2"
         /> */}
-      </Svg>
-      <SafeAreaView style={styles.buttonsView}>
-        <TouchableOpacity
-          style={styles.carbonButton}
-          onPress={() => navigation.navigate("Map")}
-        >
-          <Text style={styles.carbonText}>Carbon Offset</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.weeklyButton}>
-          <Text style={styles.carbonText}>Weekly Goal</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-      {/* <ProgressChart
+    </Svg>
+    <SafeAreaView style={styles.buttonsView}>
+    <TouchableOpacity 
+      style={styles.carbonButton}
+      onPress={() => navigation.navigate("CarbonOffset")}>
+      <Text style={styles.carbonText}>Carbon Offset</Text>
+
+  </TouchableOpacity>
+  <TouchableOpacity 
+      style={styles.weeklyButton}
+      onPress={() => navigation.navigate("WeeklyGoal")}>
+      <Text style={styles.carbonText}>Weekly Goal</Text>
+
+  </TouchableOpacity>
+  </SafeAreaView>
+    {/* <ProgressChart
       style={styles.progressChart}
       data={progressChartData}
       width={screenWidth}
