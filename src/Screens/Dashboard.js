@@ -167,12 +167,13 @@ const Dashboard = ({navigation}) => {
     <SafeAreaView style={styles.buttonsView}>
     <TouchableOpacity 
       style={styles.carbonButton}
-      onPress={() => navigation.navigate("Map")}>
+      onPress={() => navigation.navigate("CarbonOffset")}>
       <Text style={styles.carbonText}>Carbon Offset</Text>
 
   </TouchableOpacity>
   <TouchableOpacity 
-      style={styles.weeklyButton}>
+      style={styles.weeklyButton}
+      onPress={() => navigation.navigate("WeeklyGoal")}>
       <Text style={styles.carbonText}>Weekly Goal</Text>
 
   </TouchableOpacity>
