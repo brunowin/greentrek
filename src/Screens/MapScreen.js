@@ -135,11 +135,11 @@ export default class MapScreen extends Component {
             platform = "ios"
             />
           
-          <MilesTime transport='Walking' transportMiles={this.state.distWalk} transportTime={this.state.timeWalk}/>
+          <MilesTime transport='Walking' transportMiles={this.state.distWalk} transportTime={this.state.timeWalk} offset={.24}/>
 
-          <MilesTime transport='Biking' transportMiles={this.state.distBike} transportTime={this.state.timeBike}/>
+          <MilesTime transport='Biking' transportMiles={this.state.distBike} transportTime={this.state.timeBike} offset={.24}/>
 
-          <MilesTime transport='Transit' transportMiles={this.state.distTran} transportTime={this.state.timeTran}/>
+          <MilesTime transport='Transit' transportMiles={this.state.distTran} transportTime={this.state.timeTran} offset={.13}/>
           
         </View>
       </View>

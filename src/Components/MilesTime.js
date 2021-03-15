@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
-const MilesTime = ({transport, transportMiles, transportTime}) =>(
+const MilesTime = ({transport, transportMiles, transportTime, offset}) =>(
 
 <View style={{flexDirection:"row"}}>
 <View style={{flexDirection:"column", width:200}}>
   <Text style={styles.headerStyle}>{transport}</Text>
-  <Text style={styles.offsetText}>Offset</Text>
+  <Text style={styles.offsetText}>Offset {offset}kg CO2</Text>
   <Text style={styles.subText}>{transportMiles} • {transportTime}</Text>
   
   <Text></Text>
