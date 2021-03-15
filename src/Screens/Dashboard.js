@@ -101,7 +101,7 @@ const Dashboard = ({navigation}) => {
         y="10%"
         fontFamily="Helvetica"
         fontWeight="bold"
-        >Welcome back,</SvgText>
+        >Welcome back, Shourya</SvgText>
       <Circle 
         cx="50%" 
         cy="45%" 
