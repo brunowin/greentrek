@@ -8,8 +8,10 @@ import {
   FlatList,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
+import Icons from "react-native-vector-icons/MaterialIcons";
 
 const challenge_data = {
   title: "Set of Challenges",
@@ -65,36 +67,43 @@ const challenge_data = {
   ],
 };
 
-const Challenge = ({ event, view }) => (
-  <TouchableOpacity style={styles.challengeButton} onPress={() => view(event)}>
-    <Text style={styles.challengeText}>{` ${event.title} `}</Text>
-  </TouchableOpacity>
-);
-
-const ChallengeList = ({ events }) => (
-  <ScrollView>
-    <View style={styles.challengeList}>
-      {events.map((event) => (
-        <Challenge key={event.id} event={event} />
-      ))}
-    </View>
-  </ScrollView>
-);
-
 // const TextBox = () => {};
 
 const ChallengeScreen = ({ navigation }) => {
-  const view = (event) => {
-    navigation.navigate("FriendScreen", { event });
-  };
+  const Challenge = ({ event }) => (
+    <TouchableOpacity
+      style={styles.challengeButton}
+      onPress={() => navigation.navigate("SelectFriend")}
+    >
+      <Text style={styles.challengeText}>{` ${event.title} `}</Text>
+    </TouchableOpacity>
+  );
+
+  const ChallengeList = ({ events }) => (
+    <ScrollView>
+      <View style={styles.challengeList}>
+        {events.map((event) => (
+          <Challenge key={event.id} event={event} />
+        ))}
+      </View>
+    </ScrollView>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate("Leaderboard")}>
+        <Icons
+          name={"leaderboard"}
+          size={30}
+          color="#333"
+          style={{ marginLeft: "90%", marginTop: "1%", padding: 0 }}
+        />
+      </TouchableOpacity>
       <Text style={styles.textHeader}>Your Challenges</Text>
       <View style={styles.inputBox}>
         <TextInput style={styles.inputText}>Enter Custom Challenge</TextInput>
       </View>
-      <ChallengeList events={challenge_data.events} view={view} />
+      <ChallengeList events={challenge_data.events} />
     </SafeAreaView>
   );
 };
@@ -107,14 +116,17 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   textHeader: {
-    fontSize: 36,
+    fontSize: 32,
     justifyContent: "center",
     fontWeight: "bold",
+    // marginTop: 20,
+    paddingBottom: 10,
   },
   inputBox: {
-    margin: 15,
-    width: 320,
+    margin: 25,
+    width: 360,
     height: 50,
+    borderRadius: 6,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#cdebf9",
@@ -141,14 +153,18 @@ const styles = StyleSheet.create({
     margin: 10,
     height: 20,
     // padding: 10,
-    width: 150,
+    width: 160,
     backgroundColor: "#B4EEB4",
+    shadowColor: "#333",
   },
   challengeText: {
     color: "#333",
     fontSize: 20,
     fontWeight: "600",
     textAlign: "center",
+  },
+  touchBox: {
+    opacity: 100,
   },
 });
 

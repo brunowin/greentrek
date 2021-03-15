@@ -176,6 +176,24 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     alignItems: "center"
   },
+  searchBar: {
+    marginTop: 46,
+    marginLeft: 14,
+    height: 40,
+    width: 340,
+    backgroundColor: "green",
+    opacity: 0.7,
+    borderRadius: 15,
+  },
+  resultsBar: {
+    backgroundColor: "green",
+    opacity: 0.7,
+    width: "100%",
+    height: 100,
+    marginTop: 600,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 
