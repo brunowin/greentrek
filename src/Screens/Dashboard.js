@@ -102,7 +102,7 @@ const Dashboard = ({ navigation }) => {
           fontFamily="Helvetica"
           fontWeight="bold"
         >
-          Welcome back,
+          Welcome back, Shourya!
         </SvgText>
         <Circle
           cx="50%"
