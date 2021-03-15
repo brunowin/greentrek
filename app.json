@@ -17,9 +17,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "config.googleMapsApiKey":  "AIzaSyBQLWTcNgCCsGh8QDXddJu4SdzJP9E9hsQ",
-      "bundleIdentifier": "nuv.teamd.greentrek"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
