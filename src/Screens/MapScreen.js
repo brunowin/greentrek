@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, View, StyleSheet, Dimensions} from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Polyline from '@mapbox/polyline';
-import DraggablePanel from 'react-native-draggable-panel';
 import {SearchBar} from 'react-native-elements';
 import MilesTime from '../Components/MilesTime'
 
@@ -92,10 +91,11 @@ export default class MapScreen extends Component {
         style={styles.map}
         provider= {PROVIDER_GOOGLE}
         region={{
-        latitude: 42.051,
-        longitude: -87.675171,
+        latitude: 42.0489999,
+        longitude: -87.6789,
         latitudeDelta: 0.03,
-        longitudeDelta: 0.028
+        longitudeDelta: 0.0289,
+        
       }}>
 
         <MapView.Marker 
@@ -115,16 +115,18 @@ export default class MapScreen extends Component {
 
       <MapView.Polyline 
           coordinates={this.state.coords}
-          strokeWidth={4}
-          strokeColor="green"/>
+          strokeWidth={5}
+          strokeColor="#3CD200"/>
       
       
       </MapView>
-      <DraggablePanel
-        visible={true}
-        expandable={true}
-        initialHeight={330}
-        overlayOpacity={0}
+      <View
+        style={{
+          height:330,
+          backgroundColor: "white",
+          position:"absolute",
+          marginTop:500,
+          }}
       >
           <SearchBar
             placeholder= "Where do you want to go?"
@@ -139,7 +141,7 @@ export default class MapScreen extends Component {
 
           <MilesTime transport='Transit' transportMiles={this.state.distTran} transportTime={this.state.timeTran}/>
           
-        </DraggablePanel>
+        </View>
       </View>
       
       

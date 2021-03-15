@@ -6,8 +6,9 @@ const MilesTime = ({transport, transportMiles, transportTime}) =>(
 <View style={{flexDirection:"row"}}>
 <View style={{flexDirection:"column", width:200}}>
   <Text style={styles.headerStyle}>{transport}</Text>
-  <Text style={styles.subText}>Miles: {transportMiles}</Text>
-  <Text style={styles.subText}>Time: {transportTime}</Text>
+  <Text style={styles.offsetText}>Offset</Text>
+  <Text style={styles.subText}>{transportMiles} • {transportTime}</Text>
+  
   <Text></Text>
 </View>
 
@@ -25,25 +26,26 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   goButtonStyle: {
-    backgroundColor:"green",
+    backgroundColor:"#3CD200",
     width:70,
     height:70,
     borderRadius:15,
     alignItems:"center",
     justifyContent:"center",
     position:"absolute",
-    
-    
-    
-    
   },
   headerStyle:{
     marginLeft: 10,
-    fontSize: 25,
+    fontSize: 23,
   },
   subText: {
     marginLeft:10,
-    fontSize:15
+    fontSize:16
+  },
+  offsetText: {
+    marginLeft:10,
+    color:"green",
+    fontSize:18
   }
 });
 
