@@ -5,26 +5,29 @@ import { color } from 'react-native-reanimated';
 
 const carbonData = [
     {
-        name: "kg Walk",
+        name: "trees saved from Walk",
         carbonOffset: 63,
         color: "#06D6A0",
         legendFontColor: "#06D6A0",
-        legendFontSize: 15
+        legendFontSize: 11,
+        legendFontFamily: "Helvetica"
     },
     {
-        name:"kg Bike",
+        name:"trees saved from Bike",
         carbonOffset: 30,
         color: "#F8961E",
-        legendFontColor: "#F89104",
-        legendFontSize: 15,
-        opacity: 0.8
+        legendFontColor: "#F8961E",
+        legendFontSize: 11,
+        legendFontFamily: "Helvetica"
+
     },
     {
-        name:"kg Public Transit",
+        name:"trees saved from Transit",
         carbonOffset: 20,
         color: "#3a86ff",
         legendFontColor: "#3a86ff",
-        legendFontSize: 15
+        legendFontSize: 11,
+        legendFontFamily: "Helvetica"
     }
     
 ]
@@ -36,8 +39,11 @@ const pieChartConfig = {
     backgroundGradientTo: '#ffffff',
     backgroundGradientToOpacity:0.5,
      color: (opacity = 1) => `rgba(49, 204, 10, ${opacity})`,
-    strokeWidth: 5,
-    fillShadownGradident: "#31CC0A"
+    fillShadownGradident: "#31CC0A",
+    propsForLabel: {
+        y: "50",
+
+    }
     }
 
 const screenWidth = Dimensions.get("window").width;
@@ -62,12 +68,13 @@ const CarbonOffSetScreen = ({navigation}) => {
             <PieChart
                 data={carbonData}
                 width={screenWidth}
-                height={260}
+                height={270}
                 chartConfig={pieChartConfig}
                 accessor={"carbonOffset"}
                 // center = {[10,50]}
                 paddingLeft={4}
                 absolute={true}
+                R={1}
             />
             </View>
         </SafeAreaView>
@@ -77,6 +84,7 @@ const CarbonOffSetScreen = ({navigation}) => {
 const styles = StyleSheet.create ({
     container: {
         flex: 1,
+        backgroundColor: "#ffffff"
     },
     dashboardButton: {
         alignItems: "flex-start"
@@ -86,12 +94,12 @@ const styles = StyleSheet.create ({
         flex: 0.7,
         alignItems: "center",
         shadowOpacity: 0.6,
-        backgroundColor: "#457b9d",
+        backgroundColor: "#006d77",
         opacity: 0.8,
         marginTop: 20,
         borderRadius: 20,
-        width: 400,
-        marginLeft: 8,
+        width: 407,
+        marginLeft: 4,
     },
     textContainer: {
         justifyContent: "flex-end",
@@ -102,8 +110,7 @@ const styles = StyleSheet.create ({
         fontSize: 20,
         color: "white",
         fontWeight: 'bold',
-        fontFamily: "San Francisco"
-
+        fontFamily: "Helvetica"
     },
     co2Text: {
         fontSize: 30,
@@ -115,7 +122,9 @@ const styles = StyleSheet.create ({
     pieChart: {
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 60
+        marginTop: 60,
+        opacity: 0.9,
+        shadowOpacity: 0.1     
         
     }
 })
