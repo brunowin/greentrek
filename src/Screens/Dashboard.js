@@ -5,41 +5,9 @@ import FlashMessage, {showMessage} from "react-native-flash-message";
 import Svg, {Circle, Path, Text as SvgText, TSpan, Rect} from 'react-native-svg';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-<<<<<<< HEAD
-import Leaderboard from './Leaderboard';
-import MapScreen from './MapScreen';
-const progressChartData ={
-  "title": "Total progress",
-  // "stats": [
-  //   {
-  //     "title": "Offset",
-  //     "value": "25000 kg"
-  //   },
-  //   {
-  //     "title": "Energy",
-  //     "value": "3000"
-  //   },
-  //   {
-  //     "title": "Streak",
-  //     "value": "5 days",
-  //   },
-  //   {
-  //     "title": "Miles",
-  //     "value": "2512"
-  //   },
-  //   {
-  //     "title": "Friends",
-  //     "value": "6th"
-  //   }
-  // ]
-  data: [1],
-  colors: ['#000000', '#ff0000'],
-};
-=======
 import CarbonOffsetScreen from './CarbonOffsetScreen';
 
 
->>>>>>> mapapi
 const lineChartData = {
   labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat","Sun"],
   datasets: [
@@ -47,55 +15,12 @@ const lineChartData = {
     data: [80, 20, 30, 10, 60, 50, 70]
     }
   ],
-<<<<<<< HEAD
-  legend: ["Carbon emission saved"]
-}
-
-const Banner = ({title}) => (
-  <Text style={styles.bannerStyle}>{title}</Text>
-)
-// const Stat = ({stat}) => (
-//   <TouchableOpacity style={styles.statButton}>
-//     <Text style={styles.statText}>
-//       {`${stat.title}               ${stat.value}`}
-//     </Text>
-//     </TouchableOpacity>
-// );
-
-// const StatList = ({stats}) => (
-//   <ScrollView>
-//       <View style={styles.statList}>
-//         {stats.map(stat => <Stat key={stat.title} stat={stat}/>)}
-//       </View>
-//   </ScrollView>
-  
-// )
-
-const progressChartConfig = {
-  backgroundGradientFrom: "#ffffff",
-  backgroundGradientFromOpacity: 0,
-  backgroundGradientTo: '#ffffff',
-  backgroundGradientToOpacity: 0,
-   color: (opacity = 0) => `rgba(184, 230, 0, ${opacity})`,
-}
-=======
   legend: ["Kg Carbon Offset"],
 };
->>>>>>> mapapi
 
 const lineChartConfig = {
   backgroundGradientFrom: "#ffffff",
   backgroundGradientFromOpacity: 0,
-<<<<<<< HEAD
-  backgroundGradientTo: '#ffffff',
-  backgroundGradientToOpacity:0.5,
-   color: (opacity = 1) => `rgba(49, 204, 10, ${opacity})`,
-  strokeWidth: 2,
-  propsForDots: {
-    r: "4"
-  }
-}
-=======
   backgroundGradientTo: "#ffffff",
   backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(248, 150, 30, ${opacity})`,
@@ -105,7 +30,6 @@ const lineChartConfig = {
   },
 };
 
->>>>>>> mapapi
 const screenWidth = Dimensions.get("window").width;
 
 const Stack = createStackNavigator();
@@ -113,25 +37,6 @@ const Stack = createStackNavigator();
 const Dashboard = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-<<<<<<< HEAD
-    <Svg height="270" width={screenWidth}>
-      <SvgText
-        fill="black"
-        fontSize="25"
-        x="5%"
-        y="10%"
-        fontFamily="Helvetica"
-        fontWeight="bold"
-        >Welcome back, Shourya</SvgText>
-      <Circle 
-        cx="50%" 
-        cy="45%" 
-        r="80" 
-        fill="#31CC0A" 
-        fillOpacity="0.9"
-        stroke="black"
-        strokeWidth="2"
-=======
       <Svg height="270" width={screenWidth} style={styles.upperContainer}>
         <SvgText
           fill="black"
@@ -152,7 +57,6 @@ const Dashboard = ({navigation}) => {
           // stroke="black"
           // strokeWidth="2"
           // strokeOpacity="0.6"
->>>>>>> mapapi
         />
       <SvgText
         fill="white"
@@ -172,44 +76,7 @@ const Dashboard = ({navigation}) => {
         textAnchor="middle"
         fontFamily="Helvetica">
           Total Treks
-<<<<<<< HEAD
-      </SvgText>
-      {/* <SvgText
-        fill="black"
-        fontSize="20" 
-        y="82%" 
-        x="10%"
-        fontFamily="Helvetica">
-        Carbon Offset
-      </SvgText> */}
-      {/* <SvgText
-        fill="black"
-        fontSize="20" 
-        y="82%" 
-        x="60%"
-        fontFamily="Helvetica">
-        Weekly Goal
-      </SvgText> */}
-      {/* <Rect 
-        x="7%"
-        y="85%"
-        width="150"
-        height="50"
-        stroke="black"
-        strokeWidth="2"
-        fill="#31CC0A"
-        /> */}
-      {/* <Rect 
-        x="55%"
-        y="85%"
-        width="150"
-        height="50"
-        stroke="green"
-        strokeWidth="2"
-        /> */}
-=======
         </SvgText>
->>>>>>> mapapi
     </Svg>
     <View style={styles.upperButtons}>
     <TouchableOpacity 
@@ -228,51 +95,6 @@ const Dashboard = ({navigation}) => {
 
   <View style={styles.lineChart}>
       <LineChart
-<<<<<<< HEAD
-       data={lineChartData}
-       width={screenWidth}
-       height={250}
-       chartConfig={lineChartConfig}
-       onDataPointClick={({value, getColor, x}) =>
-        showMessage("You selected " + value + x)
-       }
-       />
-       <FlashMessage duration={1000} position="center" />
-       <Svg height="200" width={screenWidth}>
-        <Rect
-            width="300"
-            height="50"
-            x="15%"
-            y="20%"
-            stroke="green"
-            strokeWidth="3"
-            onPress={() => alert('Press on Rect')}
-          />
-         <SvgText
-            fill="black"
-            fontSize="20" 
-            y="35%" 
-            x="40%">
-            Total Impact
-          </SvgText>
-          <Rect
-            width="300"
-            height="50"
-            x="15%"
-            y="50%"
-            stroke="green"
-            strokeWidth="3"
-          />
-         <SvgText
-            fill="black"
-            fontSize="20" 
-            y="65%" 
-            x="40%">
-            18 Day Streak
-            </SvgText>
-       </Svg>
-      </SafeAreaView>
-=======
         data={lineChartData}
         width={screenWidth}
         height={220}
@@ -304,7 +126,6 @@ const Dashboard = ({navigation}) => {
   </TouchableOpacity>
   </View>
     </SafeAreaView>
->>>>>>> mapapi
   );
 };
 
@@ -325,35 +146,21 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     // borderWidth: 1,
     alignItems: "center",
-<<<<<<< HEAD
-    justifyContent:"space-evenly",
-    height: 50,
-    width: 150,
-    backgroundColor:"#31CC0A",
-    color:"#31CC0A"
-=======
     justifyContent: "space-evenly",
     height: 60,
     width: 160,
     backgroundColor: "#06D6A0",
     shadowOpacity: 0.3
->>>>>>> mapapi
   },
   weeklyButton: {
     borderRadius: 10,
     // borderWidth: 1,
     alignItems: "center",
     justifyContent: "space-evenly",
-<<<<<<< HEAD
-    height: 50,
-    width: 150,
-    backgroundColor:"#31CC0A",
-=======
     height: 60,
     width: 160,
     backgroundColor: "#06D6A0",
     shadowOpacity: 0.3
->>>>>>> mapapi
   },
   bannerStyle: {
     color: '#000000',
@@ -367,32 +174,6 @@ const styles = StyleSheet.create({
   },
   lowerButtons: {
     flex: 1,
-<<<<<<< HEAD
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  statButton: {
-    borderRadius: 5,
-    justifyContent: 'center',
-    // alignItems: 'center',
-    margin: 20,
-    height: 60,
-    minWidth: 350,
-    maxWidth: 350,
-    backgroundColor: '#7CDD6D',
-  },
-  statText: {
-    color: '#000000',
-    fontSize: 15,
-    textAlign: 'center',
-  },
-  carbonText: {
-    color: '#ffffff',
-    fontWeight: 'bold',
-    fontFamily: 'Helvetica'
-=======
     alignItems: "center",
     justifyContent: "space-evenly",
   },
@@ -425,7 +206,6 @@ const styles = StyleSheet.create({
   lineChart: {
     marginTop: 15,
     shadowOpacity: 0.1
->>>>>>> mapapi
   }
 });
 
