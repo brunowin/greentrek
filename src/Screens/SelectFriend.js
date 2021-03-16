@@ -65,7 +65,7 @@ const SelectFriend = ({ navigation }) => {
           displayKey="name"
           searchInputStyle={{ color: "#CCC" }}
           submitButtonColor="#42AA13"
-          submitButtonText="Choose"
+          submitButtonText="Choose"ç
         />
         <TouchableOpacity onPress={() => navigation.navigate("Challenge")}>
           <View style={styles.sendButton}>
